@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{%  block title %} 
+      HOME
+      {% endblock title %}
+
+{%  block body %}
+  <div class="container">
+    <main>
+
+      <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">CAR RENTAL</h1>
+            <p class="lead text-muted">CAR RENTAL helps you find the cheapest car for rent. We value your money.</p>
+          </div>
+        </div>
+      </section>
+    
+      <div class="album py-5 bg-light">
+        <div class="container">
+    
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-sm">
+                <img src="/static/car1.avif">
+    
+                <div class="card-body">
+                  <p class="card-text">Lamborghini</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><a class="nav-link" href="/view">View</a></button>
+                      
+                    </div>
+                    <small class="text-muted">Rs.9999</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <img src="/static/car2.jpg">
+                <div class="card-body">
+                  <p class="card-text">Hilux</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><a class="nav-link" href="/view">View</a></button>
+                      
+                    </div>
+                    <small class="text-muted">Rs.3456</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card shadow-sm">
+                <img src="/static/car3.jpg">
+                <div class="card-body">
+                  <p class="card-text">Honda Accord</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><a class="nav-link" href="/view">View</a></button>
+                      
+                    </div>
+                    <small class="text-muted">Rs.1324</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card shadow-sm">
+              <img src="/static/car3.jpg">
+              <div class="card-body">
+                <p class="card-text">Honda Acccord</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a class="nav-link" href="/view">View</a></button>
+                    
+                  </div>
+                  <small class="text-muted">Rs.1234</small>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    
+    </main>
+  </div>
+
+{% endblock body %}
