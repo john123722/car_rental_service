@@ -4,6 +4,30 @@
       CONTACT US
       {% endblock title %}
 {%  block body %}
-  this is the contact us page
+  <div class="container">
+      
+    <h1 class="text-center"> CONTACT US</h1>
+    <form method="post" action="/contactus">
+      {% csrf_token%}
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Name</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name ="name" placeholder="enter your full name">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Email address</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name ="email" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Contact</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name ="contact" placeholder="enter your contact">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Reason for contact</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" name ="reason" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
 
 {% endblock body %}
