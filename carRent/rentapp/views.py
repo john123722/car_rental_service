@@ -20,3 +20,5 @@ def home(request):
     return render(request, 'home.html')
 def view(request):
     return render(request, 'view.html') 
+def login(request):
+    return render(request,'login.html')
