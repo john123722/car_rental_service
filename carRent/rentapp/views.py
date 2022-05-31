@@ -3,7 +3,12 @@ from datetime import datetime
 from rentapp.models import Contact
 from django.contrib import messages
 from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 # Create your views here.
+def logout(request):
+    return render(request,'login.html')
+def carrental(request):
+    return render(request,'index.html')
 def index(request):
     return render(request ,'index.html') 
 def contactus(request):
@@ -22,9 +27,9 @@ def home(request):
 def view(request):
     return render(request, 'view.html') 
 def login(request):
-    if request.method == "post":
-        username = request.get('username')
-        password = request.get('password')
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
         from django.contrib.auth import authenticate
         user = authenticate(username= username, password=password)
         if user is not None:
