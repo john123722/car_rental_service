@@ -2,6 +2,7 @@ from django.shortcuts import render
 from datetime import datetime
 from rentapp.models import Contact
 from django.contrib import messages
+from django.contrib.auth import authenticate
 # Create your views here.
 def index(request):
     return render(request ,'index.html') 
@@ -21,4 +22,15 @@ def home(request):
 def view(request):
     return render(request, 'view.html') 
 def login(request):
+    if request.method == "post":
+        username = request.get('username')
+        password = request.get('password')
+        from django.contrib.auth import authenticate
+        user = authenticate(username= username, password=password)
+        if user is not None:
+            messages.success(request, 'login successful')
+            return render(request,'index.html')
+        else:
+            messages.warning(request, 'invalid username or password')
+            return render(request,'login.html')
     return render(request,'login.html')

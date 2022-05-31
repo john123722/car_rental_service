@@ -13,5 +13,7 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
     
-
+class login(models.Model):
+    username = models.CharField(max_length= 75)
+    password = models.CharField(max_length= 75)
 
