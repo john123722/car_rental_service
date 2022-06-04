@@ -1,9 +1,49 @@
 {% extends 'base.html' %}
 
+
 {%  block title %} 
       CONTACT US
+      
+     
       {% endblock title %}
+    
+      
 {%  block body %}
-  this is the view page
+<div class="row">
+  <div class="col-6">
+      <img src="/static/car1.avif"  class="img-fluid">
+  </div>
+  <div class="col-6">
+      <div class="row">
+        <br><hr>
+          <h3>this is for description</h3>
+      </div>
+      <div class="row">
+        <br><hr>
+        <h3>NRs.</h3>
+      </div>
+      <div class="row">
+        <div class="col-3">
+        <br><hr>
+        <input type="text" class="form-control"  name ="quantity" placeholder="Enter quantity">
+        
+        </div>
+      </div>
+      <div class="row">
+        <br> <hr>
+        <div class="cols-4">
+          <button type="submit" class="btn btn-primary">BUY</button>
+          
+          <button type="submit" class="btn btn-primary">Rating
+          </button>
+        </div>
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 my-3">
+      <h1> this is for product details</h1>
+  </div>
+</div>
 
 {% endblock body %}
