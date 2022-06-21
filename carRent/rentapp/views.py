@@ -1,9 +1,12 @@
+from django import views
 from django.shortcuts import render
 from datetime import datetime
 from rentapp.models import Contact
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
+
+
 # Create your views here.
 def logout(request):
     return render(request,'login.html')
@@ -24,13 +27,15 @@ def contactus(request):
     return render(request , 'contactus.html')
 def home(request):
     return render(request, 'home.html')
-def view(request):
-    return render(request, 'view.html') 
+
+
+
+
 def login(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
-        from django.contrib.auth import authenticate
+        
         user = authenticate(username= username, password=password)
         if user is not None:
             messages.success(request, 'login successful')
@@ -39,3 +44,11 @@ def login(request):
             messages.warning(request, 'invalid username or password')
             return render(request,'login.html')
     return render(request,'login.html')
+
+
+
+class car_view(views.View):
+    def get(self,request, pk):
+        View12 = View12.objects.get(pk = pk)
+        return render(request,'view.html',{'View12':View12})
+        
