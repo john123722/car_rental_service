@@ -22,14 +22,17 @@ class login(models.Model):
 
 class car(models.Model):
     name = models.CharField(max_length=70)
-    price = models.IntegerField(default)
-    description = models.TextField(max_length= 300)
-    quantity = models.IntegerField(default)
-    id = models.IntegerField(primary_key=TRUE)
+    price = models.IntegerField(default=0)
+    description = models.CharField(max_length= 300)
+    quantity = models.IntegerField(default=0)
+    image = models.ImageField(upload_to='static/uploads')
 
 class review(models.Model):
-    username = models.ForeignKey(User, verbose_name="username", on_delete=models.CASCADE)
-    id = models.IntegerField(primary_key=TRUE)
-    rating = models.IntegerField()
-    cars = models.ForeignKey(car,verbose_name="cars",on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    rating = models.IntegerField(default= 0)
+    description = models.CharField(max_length=300)
+
+
+
+
 

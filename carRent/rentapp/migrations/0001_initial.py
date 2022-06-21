@@ -26,24 +26,6 @@ class Migration(migrations.Migration):
                 ('date', models.DateField()),
             ], 
            ),
-        migrations.CreateModel(
-            name='car',
-            fields= [
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=75)),
-                ('price', models.IntegerField()),
-                ('description', models.TextField(max_length= 300)),
-                ('quantity', models.IntegerField)
-
-            ],
-           ),
-        migrations.CreateModel(
-             name='review',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('username', models.ForeignKey(User, verbose_name="username", on_delete=models.CASCADE)),
-                ('rating', models.IntegerField()),
-                ('cars', models.ForeignKey(car,verbose_name="cars",on_delete=models.CASCADE))    
-            ],
-           ),
+        
+       
     ]
