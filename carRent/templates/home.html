@@ -15,77 +15,37 @@
           </div>
         </div>
       </section>
-    
+      {% for car in cars %}
       <div class="album py-5 bg-light">
+        
         <div class="container">
-    
+          
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div class="col">
               <div class="card shadow-sm">
-                <img src="/static/car1.jpg">
+                <img src="{{car.image}}">
     
                 <div class="card-body">
-                  <p class="card-text">Lamborghini</p>
+                  <p class="card-text">{{car.name}}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary"><a class="nav-link" href="/view">View</a></button>
                       
                     </div>
-                    <small class="text-muted">Rs.9999</small>
+                    <small class="text-muted">{{car.price}}</small>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <img src="/static/car2.jpg">
-                <div class="card-body">
-                  <p class="card-text">Hilux</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><a class="nav-link" href="/view">View</a></button>
-                      
-                    </div>
-                    <small class="text-muted">Rs.3456</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <img src="/static/car3.jpg">
-                <div class="card-body">
-                  <p class="card-text">Honda Accord</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary"><a class="nav-link" href="/view">View</a></button>
-                      
-                    </div>
-                    <small class="text-muted">Rs.1324</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="card shadow-sm">
-              <img src="/static/car3.jpg">
-              <div class="card-body">
-                <p class="card-text">Honda Acccord</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><a class="nav-link" href="/view">View</a></button>
-                    
-                  </div>
-                  <small class="text-muted">Rs.1234</small>
-                </div>
-              </div>
-            </div>
-          </div>
+            
             
             
           </div>
+         
         </div>
+        
       </div>
-    
+      {% endfor %}
     </main>
   </div>
 

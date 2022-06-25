@@ -3,6 +3,7 @@ from email.policy import default
 from pickle import TRUE
 from django.db import models
 from django.contrib.auth.models import User
+from django.forms import BaseModelForm
 
 # Create your models here.
 
@@ -27,11 +28,18 @@ class car(models.Model):
     quantity = models.IntegerField(default=0)
     image = models.ImageField(upload_to='static/uploads')
 
+    def __str__(self) -> str:
+        return self.name
+
 class review(models.Model):
-    name = models.CharField(max_length=50)
+    car = models.ForeignKey(car, verbose_name="car", on_delete=models.CASCADE)
+    #name = models.CharField(max_length=50)
     rating = models.IntegerField(default= 0)
     description = models.CharField(max_length=300)
 
+class imageSend(models.Model):
+    car1 = models.ForeignKey(car,on_delete=models.CASCADE, related_name = "car_image")
+    imagec = models.ImageField(upload_to ="car1")
 
 
 

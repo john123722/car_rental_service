@@ -1,7 +1,7 @@
 from django import views
 from django.shortcuts import render
 from datetime import datetime
-from rentapp.models import Contact
+from rentapp.models import Contact,car
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
@@ -25,9 +25,10 @@ def contactus(request):
         contact.save()
         messages.success(request, 'Message sent successfully')
     return render(request , 'contactus.html')
-def home(request):
-    return render(request, 'home.html')
 
+def home(request):
+    context = {'cars':car.objects.all}
+    return render(request,'home.html',context)
 
 
 
@@ -52,3 +53,4 @@ class car_view(views.View):
         View12 = View12.objects.get(pk = pk)
         return render(request,'view.html',{'View12':View12})
         
+
