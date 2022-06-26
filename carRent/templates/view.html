@@ -2,25 +2,26 @@
 
 
 {%  block title %} 
-      CONTACT US
+      VIEW
       
      
       {% endblock title %}
     
       
 {%  block body %}
+{% for car in cars %}
 <div class="row">
   <div class="col-6">
-      <img src="/static/car1.avif"  class="img-fluid">
+      <img src="{{car.image}}" >
   </div>
   <div class="col-6">
       <div class="row">
         <br><hr>
-          <h3>this is for description</h3>
+          <h3>{{ car.name }}</h3>
       </div>
       <div class="row">
         <br><hr>
-        <h3>NRs.</h3>
+        <h3>NRs.{{ car.price }}</h3>
       </div>
       <div class="row">
         <div class="col-3">
@@ -42,8 +43,8 @@
 </div>
 <div class="row">
   <div class="col-12 my-3">
-      <h1> this is for product details</h1>
+      <h1>{{car.description}}</h1>
   </div>
 </div>
-
+{% endfor %}
 {% endblock body %}

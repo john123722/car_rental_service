@@ -1,11 +1,11 @@
 from django import views
 from django.shortcuts import render
 from datetime import datetime
-from rentapp.models import Contact,car
+from rentapp.models import Contact,car,review
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
-
+from django.views import View
 
 # Create your views here.
 def logout(request):
@@ -31,7 +31,6 @@ def home(request):
     return render(request,'home.html',context)
 
 
-
 def login(request):
     if request.method == "POST":
         username = request.POST.get('username')
@@ -48,9 +47,9 @@ def login(request):
 
 
 
-class car_view(views.View):
+class car_view(View):
     def get(self,request, pk):
-        View12 = View12.objects.get(pk = pk)
-        return render(request,'view.html',{'View12':View12})
+        context = {'cars':car.objects.filter(pk=pk)}
+        return render(request,'view.html',context)
         
 
