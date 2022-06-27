@@ -12,7 +12,7 @@
 {% for car in cars %}
 <div class="row">
   <div class="col-6">
-      <img src="{{car.image}}" >
+      <img src="{{car.image.url}}"  class="container-fluid">
   </div>
   <div class="col-6">
       <div class="row">
@@ -35,7 +35,7 @@
         <div class="cols-4">
           <button type="submit" class="btn btn-primary">BUY</button>
           
-          <button type="submit" class="btn btn-primary">Rating
+          <button type="submit" class="btn btn-primary"><a class="nav-link" href="{% url 'rating' car.id %}">Rating</a>
           </button>
         </div>
       </div>
