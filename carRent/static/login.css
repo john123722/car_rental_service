@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #f5f5f5;
+    background: #352d2d;
     height: 100vh;
     overflow: hidden;
     
@@ -14,7 +14,7 @@ body{
     transform: translate(-50% , -50%);
     width: 400px;
     height: 450px;
-    background: linear-gradient(120deg,#ff9962,#ff5e62); 
+    background: gray; 
     border-radius: 15px;  
     box-shadow: 5px 5px 8px -4px #888888;
 }
@@ -34,12 +34,11 @@ form .txt_field{
     border-bottom: 2px solid #ffffff;
     margin: 30px 0;
     color: white;
-    height: auto;
 }
 .txt_field input{
     width: 100%;
-    padding: 0 3px;
-    height: 50px;
+    padding: 0 5px;
+    height: 40px;
     font-size: 16px;
     border: none;
     background: none;
@@ -52,7 +51,7 @@ form .txt_field{
     left: 33px;
     color: #fafafa;
     transform: translate(-50%);
-    font-size: 16px;
+    font-size: 15px;
     pointer-events: none;
     transition-duration: 0.4s;
 }
@@ -105,20 +104,4 @@ input[type="submit"]:hover{
     background: #353535ce;
     transition: .1s;
 }
-.signup_link{
-    margin: 30px 0;
-    text-align: center;
-    font-size: 16px;
-    color: #ffffff;
-}
-.signup_link a{
-    color: #f5f5f5;
-    text-decoration: underline;
-}
-.signup_link a:hover{
-    text-decoration: underline;
-    color: #3717ee
-}
-
-
 

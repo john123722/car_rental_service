@@ -2,8 +2,94 @@
 
 {%  block title %} 
       Rating
-      {% endblock title %}
-{%  block body %}
- <h1>this is rating </h1>
+{% endblock title %}
 
+{% block css1 %}
+<link rel ="stylesheet" href = "/static/style.css">
+{% endblock css1 %}
+
+{%  block body %}
+ <!-- Sidebar -->
+ 
+ 
+<div class="w3-sidebar w3-light-grey w3-bar-block" style="width:25%">
+      <div class="container">
+            
+            <h1 class="text-center">RATING</h1>
+            {% for car in cars %}
+            <form method="post" action="{% url 'rating' car.id %}">
+                  {% endfor %} {% csrf_token%}
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="exampleFormControlInput1" name ="username" placeholder="enter your username">
+                </div>
+
+              <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Car</label>
+                  <input type="text" class="form-control" id="exampleFormControlInput1" name ="car_name" placeholder="enter car name">
+                </div>
+
+            
+            
+            <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Rating</label><br>
+                  <div class="center">
+                   <div class="row-col-6">
+                        <div class="stars">
+                              <p></p>
+                              <input type="radio" id="five" name="rate" value="5">
+                              <label for="five"></label>
+                              <input type="radio" id="four" name="rate" value="4">
+                              <label for="four"></label>
+                              <input type="radio" id="three" name="rate" value="3">
+                              <label for="three"></label>
+                              <input type="radio" id="two" name="rate" value="2">
+                              <label for="two"></label>
+                              <input type="radio" id="one" name="rate" value="1">
+                              <label for="one"></label>
+                              
+                        </div>
+                   </div>
+                  </div>
+            </div>
+            <div class="mb-3">
+                  
+              <label for="exampleFormControlInput1" class="form-label"><p></p>Review</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" name ="review" placeholder="share your review">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Post</button>
+          </form>
+        </div>
+        
+
+
+        
+    </div>
+    
+    <!-- Page Content -->
+    <div style="margin-left:25%">
+    
+    <div class="w3-container w3-teal">
+      <h1>REVIEWS</h1>
+    </div>
+    
+    
+    
+    <div class="w3-container">
+            {% if revi %}
+            {% for reviews in revi %}
+            <h4>Name:{{reviews.username}} </h4> 
+            <input type="text-box" placeholder="{{reviews.review}}">
+            {% endfor %}
+            {% endif %}
+
+            <h1>No reviews. Be the first one to review</h1>
+      </div>
+      
+
+    
+    </div>
+    
+    
 {% endblock body %}

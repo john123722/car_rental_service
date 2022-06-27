@@ -11,5 +11,7 @@ urlpatterns = [
     path("home",views.home,name='home'),
     path("view/<int:pk>",views.car_view.as_view(),name='view'),
     path("login",views.index,name='index'),
-    path("logout",views.logout,name='logout')
+    path("logout",views.logout,name='logout'),
+    path("rating/<int:pk>",views.rating_view.as_view(),name='rating')
+    
 ]

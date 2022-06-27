@@ -31,11 +31,16 @@ class car(models.Model):
     def __str__(self) -> str:
         return self.name
 
-class review(models.Model):
-    car = models.ForeignKey(car, verbose_name="car", on_delete=models.CASCADE)
-    #name = models.CharField(max_length=50)
-    rating = models.IntegerField(default= 0)
-    description = models.CharField(max_length=300)
+class reviews(models.Model):
+    
+    username = models.CharField(max_length=50, default='default')
+    car_name = models.CharField(max_length=50)
+    #rating = models.IntegerField(default= 0)
+    review = models.CharField(max_length=300)
+
+    def __str__(self) -> str:
+        return self.car_name
+    
 
 class imageSend(models.Model):
     car1 = models.ForeignKey(car,on_delete=models.CASCADE, related_name = "car_image")

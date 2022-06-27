@@ -1,7 +1,10 @@
+from multiprocessing import context
 from django import views
 from django.shortcuts import render
 from datetime import datetime
-from rentapp.models import Contact,car,review
+
+from requests import request
+from rentapp.models import Contact,car,reviews
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
@@ -51,5 +54,30 @@ class car_view(View):
     def get(self,request, pk):
         context = {'cars':car.objects.filter(pk=pk)}
         return render(request,'view.html',context)
-        
 
+
+
+
+
+class rating_view(View):
+
+     def get(self,request, pk):
+        context = {'cars':car.objects.filter(pk=pk)}
+        
+        return render(request,'rating.html',context)
+        
+ 
+     def post(self,request,pk):
+        if request.method == "POST":
+            username = request.POST.get('username')
+            car_name = request.POST.get('car_name')
+            review = request.POST.get('review')
+        
+            review = reviews(car_name=car_name, username=username, review = review)
+            review.save()
+        
+        context = {'revi':reviews.objects.filter(pk=pk,car_name=car_name)}
+        return render(request,'rating.html',context)
+    
+
+    

@@ -1,0 +1,32 @@
+.center{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 30%
+   
+}
+
+.stars input{
+    display: none;
+}
+
+.stars label{
+    float: right;
+    font-size: 30px;
+    color: rgb(69, 69, 69);
+    margin: 0 5px;
+    
+}
+
+.stars label:before{
+    content: '★';
+}
+
+.stars input:checked ~ label{
+    color: gold;
+    text-shadow: 1px 1px #c60;
+}
+.stars:input:checked > label:hover,
+.stars:input:checked > label:hover ~ label{
+    color: gold;
+    text-shadow: 1px 1px goldenrod;
+}
