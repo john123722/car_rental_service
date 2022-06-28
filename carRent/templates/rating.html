@@ -77,14 +77,13 @@
     
     
     <div class="w3-container">
-            {% if revi %}
-            {% for reviews in revi %}
-            <h4>Name:{{reviews.username}} </h4> 
-            <input type="text-box" placeholder="{{reviews.review}}">
-            {% endfor %}
-            {% endif %}
-
-            <h1>No reviews. Be the first one to review</h1>
+            
+            {% for rev in revi %}
+            <h4>Name:{{ rev.username }} </h4> 
+             {{ rev.review }}
+             {% endfor %}
+             
+            
       </div>
       
 
