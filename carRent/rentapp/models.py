@@ -27,19 +27,22 @@ class car(models.Model):
     description = models.CharField(max_length= 300)
     quantity = models.IntegerField(default=0)
     image = models.ImageField(upload_to='static/uploads')
-
+    
     def __str__(self) -> str:
         return self.name
+    
+    
 
 class reviews(models.Model):
     
     username = models.CharField(max_length=50, default='default')
     car_name = models.CharField(max_length=50)
-    #rating = models.IntegerField(default= 0)
+    rating = models.IntegerField(default= 0)
     review = models.CharField(max_length=300)
 
     def __str__(self) -> str:
         return self.car_name
+
     
 
 class imageSend(models.Model):

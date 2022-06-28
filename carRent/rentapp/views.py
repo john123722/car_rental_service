@@ -1,4 +1,5 @@
 from multiprocessing import context
+from unicodedata import name
 from django import views
 from django.shortcuts import render
 from datetime import datetime
@@ -60,23 +61,27 @@ class car_view(View):
 
 
 class rating_view(View):
-     def post(self,request,pk):
+    def get(self,request,pk):
+        car_name = car.objects.filter(name=name)
+        context = {'revi':reviews.objects.all,'cars':car.objects.filter(pk=pk)
+                   }
+        
+        return render(request,'rating.html',context)
+
+    def post(self,request,pk):
         if request.method == "POST":
             username = request.POST.get('username')
             car_name = request.POST.get('car_name')
             review = request.POST.get('review')
+            rating = request.POST.get('rating')
         
-            review = reviews(car_name=car_name, username=username, review = review)
+            review = reviews(car_name=car_name, username=username, review = review,rating=rating)
 
-            review.save()
-            
+            review.save()  
         
-        context = {'revi':reviews.objects.filter(car_name=car_name)}
+        context = {'revi':reviews.objects.filter(car_name=car_name),'cars':car.objects.filter(pk=pk)}
         return render(request,'rating.html',context)
      
-     def get(self,request, pk):
-    
-        context = {'cars':car.objects.filter(pk=pk)}
-        return render(request,'rating.html',context)
+     
          
     

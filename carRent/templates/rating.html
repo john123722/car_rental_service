@@ -17,8 +17,8 @@
             
             <h1 class="text-center">RATING</h1>
             {% for car in cars %}
-            <form method="post" action="{% url 'rating' car.id %}">
-                  {% endfor %} {% csrf_token%}
+            <form method="post" action="{% url 'rating' car.id %}">{% endfor %} 
+                   {% csrf_token%}
               <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label">Name</label>
                   <input type="text" class="form-control" id="exampleFormControlInput1" name ="username" placeholder="enter your username">
@@ -32,25 +32,8 @@
             
             
             <div class="mb-3">
-                  <label for="exampleFormControlInput1" class="form-label">Rating</label><br>
-                  <div class="center">
-                   <div class="row-col-6">
-                        <div class="stars">
-                              <p></p>
-                              <input type="radio" id="five" name="rate" value="5">
-                              <label for="five"></label>
-                              <input type="radio" id="four" name="rate" value="4">
-                              <label for="four"></label>
-                              <input type="radio" id="three" name="rate" value="3">
-                              <label for="three"></label>
-                              <input type="radio" id="two" name="rate" value="2">
-                              <label for="two"></label>
-                              <input type="radio" id="one" name="rate" value="1">
-                              <label for="one"></label>
-                              
-                        </div>
-                   </div>
-                  </div>
+                  <label for="exampleFormControlInput1" class="form-label">Rating(out of 5)</label><br>
+                  <input type="text" class="form-control" id="exampleFormControlInput1" name ="rating" placeholder="share your rating">
             </div>
             <div class="mb-3">
                   
@@ -79,8 +62,9 @@
     <div class="w3-container">
             
             {% for rev in revi %}
-            <h4>Name:{{ rev.username }} </h4> 
-             {{ rev.review }}
+            <h4>{{ rev.username }} <small>({{ rev.rating }}.0 / 5)</small></h4> 
+            
+             <h3>{{ rev.review }}</h3>
              {% endfor %}
              
             
