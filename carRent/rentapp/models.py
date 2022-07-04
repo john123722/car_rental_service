@@ -40,13 +40,15 @@ class reviews(models.Model):
     car_name = models.CharField(max_length=50, default='default')
     rating = models.IntegerField(default= 0)
     review = models.CharField(max_length=300)
-    car = models.ForeignKey(car , verbose_name='car', on_delete=models.CASCADE)
+    #car = models.ForeignKey(car,verbose_name='car', on_delete=models.CASCADE)
     
     
 
 class imageSend(models.Model):
     car1 = models.ForeignKey(car,on_delete=models.CASCADE, related_name = "car_image")
     imagec = models.ImageField(upload_to ="car1")
+
+
 
 
 

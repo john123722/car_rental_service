@@ -67,13 +67,13 @@ class rating_view(View):
        
         return render(request,'rating.html',context)
 
-    def post(self,request,pk):
+    def post(self,request):
         if request.method == "POST":
             username = request.POST.get('username')
             car_name = request.POST.get('car_name')
             rating = request.POST.get('rating')
             review = request.POST.get('review')
-            review1 = reviews( username=username,car_name=car_name,rating=rating, review = review)
+            review1 = reviews( username=username, car_name=car_name, rating=rating, review = review)
             review1.save()  
         
         context = {'revi':reviews.objects.all}
