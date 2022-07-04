@@ -1,11 +1,10 @@
 from multiprocessing import context
 from unicodedata import name
-from django import views
+from rentapp import views
 from django.shortcuts import render
 from datetime import datetime
-
-from requests import request
-from rentapp.models import Contact,car,reviews
+from rentapp.models import reviews
+from rentapp.models import Contact,car
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
@@ -67,7 +66,7 @@ class rating_view(View):
        
         return render(request,'rating.html',context)
 
-    def post(self,request):
+    def post(self,request,pk):
         if request.method == "POST":
             username = request.POST.get('username')
             car_name = request.POST.get('car_name')

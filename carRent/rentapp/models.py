@@ -4,7 +4,6 @@ from pickle import TRUE
 from django.db import models
 from django.contrib.auth.models import User
 from django.forms import BaseModelForm
-
 # Create your models here.
 
 class Contact(models.Model):
@@ -35,12 +34,10 @@ class car(models.Model):
     
 
 class reviews(models.Model):
-    
-    username = models.CharField(max_length=50, default='default')
-    car_name = models.CharField(max_length=50, default='default')
+    username = models.CharField(max_length=300)
     rating = models.IntegerField(default= 0)
     review = models.CharField(max_length=300)
-    #car = models.ForeignKey(car,verbose_name='car', on_delete=models.CASCADE)
+    car_name = models.CharField(max_length=300)
     
     
 
