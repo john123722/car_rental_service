@@ -62,24 +62,21 @@ class car_view(View):
 
 class rating_view(View):
     def get(self,request,pk):
-        car_name = car.objects.filter(name=name)
-        context = {'revi':reviews.objects.all,'cars':car.objects.filter(pk=pk)
+        context = {'cars':car.objects.filter(pk=pk)
                    }
-        
+       
         return render(request,'rating.html',context)
 
     def post(self,request,pk):
         if request.method == "POST":
             username = request.POST.get('username')
             car_name = request.POST.get('car_name')
-            review = request.POST.get('review')
             rating = request.POST.get('rating')
+            review = request.POST.get('review')
+            review1 = reviews( username=username,car_name=car_name,rating=rating, review = review)
+            review1.save()  
         
-            review = reviews(car_name=car_name, username=username, review = review,rating=rating)
-
-            review.save()  
-        
-        context = {'revi':reviews.objects.filter(car_name=car_name),'cars':car.objects.filter(pk=pk)}
+        context = {'revi':reviews.objects.all}
         return render(request,'rating.html',context)
      
      

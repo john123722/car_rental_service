@@ -22,6 +22,7 @@ class login(models.Model):
     password = models.CharField(max_length= 75)
 
 class car(models.Model):
+    c_id = models.IntegerField(default= 0)
     name = models.CharField(max_length=70)
     price = models.IntegerField(default=0)
     description = models.CharField(max_length= 300)
@@ -36,13 +37,11 @@ class car(models.Model):
 class reviews(models.Model):
     
     username = models.CharField(max_length=50, default='default')
-    car_name = models.CharField(max_length=50)
+    car_name = models.CharField(max_length=50, default='default')
     rating = models.IntegerField(default= 0)
     review = models.CharField(max_length=300)
-
-    def __str__(self) -> str:
-        return self.car_name
-
+    car = models.ForeignKey(car , verbose_name='car', on_delete=models.CASCADE)
+    
     
 
 class imageSend(models.Model):
